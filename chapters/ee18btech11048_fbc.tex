@@ -23,7 +23,7 @@ Find G,H and T. If the loop gain is large, find an approximate expression for T
 and state precisely the condition for which this applies.\\
 
 \solution
-The parameters given are shown in the TABLE.\ref{table: Table2}:1
+The parameters given are shown in the TABLE.\ref{table: Table1}:1
 \begin{table}[!ht]
 \centering
 \input{./tables/ee18btech11048_table1.tex}
@@ -51,9 +51,9 @@ G &= \frac{I_{o}}{V_{i}} \label{eq:G}\\
 Calculating H\\
 \solution
 \begin{align}
-H &= \frac{V_{f}}{I_{o}} \label{eq:H}\\
+H &= \frac{V_{f}}{I_{o}} \label{eq:H}
 \end{align}
-From the equivalent circuit in fig \ref{fig:ss_circuit}:2\\
+From fig \ref{fig:ss_circuit}:2\\
 \begin{align}
 V_{f}&=R_{1}I_{o}\frac{R_M}{R_M+R_1+R_2}\\
 \implies
@@ -63,9 +63,9 @@ H &= \frac{R_1R_M}{R_1+R_2+R_M}
 Calculating T\\
 \solution
 \begin{align}
-T &= \frac{G}{1+GH} \label{eq:T}\\
+T &= \frac{G}{1+GH} \label{eq:T}
 \end{align}
-From the equivalent circuit in fig \ref{fig:ss_circuit}:2
+From fig \ref{fig:ss_circuit}:2
 \begin{align}
 T&= \frac{\mu \brak{R_1+R_2+R_M}}{R_1+R_2+R_M+ \mu R_1R_M}
 \end{align}
