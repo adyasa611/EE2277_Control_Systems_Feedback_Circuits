@@ -8,7 +8,7 @@ Find G,H and T. If the loop gain is large, find an approximate expression for T
 and state precisely the condition for which this applies.
 \begin{figure}[!ht]
 	\begin{center}
-		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11048_fbc1.tex}}
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11048_fbc1}}
 	\end{center}
 \caption{}
 \label{fig:ee18btech11048_original_circuit}
@@ -40,10 +40,29 @@ The equivalent circuit of the amplifier is in Fig. \ref{fig:ee18btech11048_ss_ci
 
 \item Draw the block diagram and equivalent ciruit for $H$.
 \\
-\solution See Fig. \ref{fig:ee18btech11048_original_circuit} and \ref{fig:ee18btech11048_ss_circuit}.
+\renewcommand{\thefigure}{\theenumi.\arabic{figure}}
+
+
+\begin{figure}[!ht]
+	\begin{center}
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11048img3.tex}}
+	\end{center}
+\caption{}
+\label{fig:ee18btech11048pic3}
+\end{figure}
+
+\begin{figure}[!ht]
+	\begin{center}
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11048h.tex}}
+	\end{center}
+\caption{}
+\label{fig:ee18btech11048h}
+\end{figure}
+
+\solution See Fig. \ref{fig:ee18btech11048pic3} and \ref{fig:ee18btech11048h}.
 \item Find  $H$.
 \\
-\solution From Fig. \ref{fig:ee18btech11048_ss_circuit},
+\solution From Fig.  \ref{fig:ee18btech11048pic3} and \ref{fig:ee18btech11048h},
 
 \begin{align}
 H &= \frac{V_{f}}{I_{o}} 
@@ -61,6 +80,14 @@ G &= \frac{I_{o}}{V_{i}} \label{eq:ee18btech11048_G}\\
 \end{align}
 \item  Find $T$.
 \\
+\begin{figure}[!ht]
+	\begin{center}
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11048_block.tex}}
+	\end{center}
+\caption{}
+\label{fig:block}
+\end{figure}
+
 \solution
 \begin{align}
 T &= \frac{G}{1+GH} \label{eq:ee18btech11048_T}
@@ -83,7 +110,7 @@ T &= \frac{G}{1+GH} \label{eq:ee18btech11048_T}
 \end{table}
 
 
-\item Find $I_o$ for the parameters given in  Table  \ref{table:ee18btech11048_ Example_Table}.
+\item Find $I_o$ for the parameters given in  Table  \ref{table:ee18btech11048_ Example_Table}.\\
 \begin{table}[!ht]
 \centering
 \input{./tables/ee18btech11048_tables3.tex}
@@ -93,41 +120,10 @@ T &= \frac{G}{1+GH} \label{eq:ee18btech11048_T}
 \solution  The following code computes the value of $V_o$ using the fact that
 \begin{align}
 I_o &= \frac{V_s}{H}\\
-\implies I_o &= \frac{3}{1000} A
 \end{align}
-%From Fig\ref{fig:ee18btech11048_original_circuit}
-%\begin{align}
-%V_o - V_A &= I_o R_L \\
-%V_A &= I_o\brak{R_M\parallel\brak{R_1+R_2}}\\
-%\implies V_o &= I_o\brak{R_L+\brak{R_M\parallel\brak{R_1+R_2}}}
-%\end{align}
-%Dividing both sides by $V_s$
-%\begin{align}
-%\frac{V_o}{V_s} &= \frac{I_o}{V_s}\brak{R_L+\brak{R_M\parallel\brak{R_1+R_2}}} \label{eq:ee18btech11048_eee}
-%\end{align}
-%From equation \ref{eq:ee18btech11048_To} and \ref{eq:ee18btech11048_eee}
-%\begin{align}
-% \frac{V_o}{V_s} &= T\brak{R_L+\brak{R_M\parallel\brak{R_1+R_2}}} \label{eq:ee18btech11048_final}
-%\end{align}
-%From values in table\ref{table:ee18btech11048_ Example_Table} 
-%\begin{align}
-% H&= \frac{\brak{1000}\brak{1000}}{1000+1000+1000}\\
-% \implies H&= \frac{1000}{3}
-%\end{align}
-%For an op amp:
-%\begin{align}
-% G \in \brak{20000,200000}
-%\end{align}
-%So, from equation \ref{eq:ee18btech11048_greater} and Table\ref{table:ee18btech11048_ Example_Table}
-%\begin{align}
-%T &\approx \frac{1}{H}\\
-% T &= \frac{3}{1000}
-%\end{align}
-%Hence,
-%\begin{align}
-%V_o &= 5V_s\\
-%\implies V_o &= 5V
-%\end{align}
+\begin{lstlisting}
+codes/ee18btech11048_fbc.py
+\end{lstlisting}
 \item Verify your result through spice.
 \\
 \solution The following readme file provides necessary instructions to simulate the circuit in spice.
@@ -139,5 +135,4 @@ The following netlist simulates the given circuit.
 \begin{lstlisting}
 codes/spice/feedback.net
 \end{lstlisting}
-
 \end{enumerate}
