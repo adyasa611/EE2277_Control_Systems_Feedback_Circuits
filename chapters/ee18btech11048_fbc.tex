@@ -117,13 +117,14 @@ T &= \frac{G}{1+GH} \label{eq:ee18btech11048_T}
 \caption{}
 \label{table:ee18btech11048_ Example_Table}
 \end{table}
-\solution  The following code computes the value of $V_o$ using the fact that
+\solution  The following code computes the value of $I_o$ using the fact that
 \begin{align}
 I_o &= \frac{V_s}{H}\\
 \end{align}
 \begin{lstlisting}
-codes/ee18btech11048_fbc.py
+codes/ee18btech11048/ee18btech11048_fbc.py
 \end{lstlisting}
+On running this code value of $I_o$ is printed on terminal. The value obtained is 0.003 A.
 \item Verify your result through spice.
 \\
 \solution The following readme file provides necessary instructions to simulate the circuit in spice.
@@ -133,6 +134,12 @@ codes/ee18btech11048/spice/README
 
 The following netlist simulates the given circuit.
 \begin{lstlisting}
-codes/spice/feedback.net
+codes/ee18btech11048/spice/feedback.net
 \end{lstlisting}
+On running the spice simulations the $I_o$ value is printed on terminal.
+The value printed is 0.003003266 A.
+
+We observe that the value obtained using SPICE simulation is very close to the value obtained from the python code.
+
+So the approximation for $T$ gives accurate results.
 \end{enumerate}
